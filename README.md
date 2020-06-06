@@ -1,24 +1,27 @@
-# vue-weather
+# Weather App
 
-## Project setup
-```
-npm install
-```
+Simple weather app that allows you search for any location and see some weather information.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Built With
 
-### Compiles and minifies for production
-```
-npm run build
-```
+    * [openweathermap API](https://openweathermap.org/)
+    * [Vue.js](https://vuejs.org/)
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Task List
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Status | Tasks
+-----|--------
+Done | Display basic weather info
+Done | Week forecast
+Done | Change background depending on the time of day
+In progress | Display correct time based on timezone
+
+### Screenshots
+
+Basic weather info 
+
+![image](https://user-images.githubusercontent.com/55266594/83950756-1dfd7080-a7fb-11ea-9683-2c02d73e8ed2.png)
+
+5 day forecast
+
+![image](https://user-images.githubusercontent.com/55266594/83950784-3e2d2f80-a7fb-11ea-8cfe-36a7609a8367.png)
