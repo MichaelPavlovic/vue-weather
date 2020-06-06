@@ -4,8 +4,8 @@ Simple weather app that allows you search for any location and see some weather 
 
 ## Built With
 
-    * [openweathermap API](https://openweathermap.org/)
-    * [Vue.js](https://vuejs.org/)
+   * [openweathermap API](https://openweathermap.org/)
+   * [Vue.js](https://vuejs.org/)
 
 ### Task List
 
