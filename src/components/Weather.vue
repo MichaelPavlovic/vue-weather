@@ -18,6 +18,7 @@
       </div>
       <div class="flex-item">
         <div class="weather__type">{{ weatherData.list[0].weather[0].main }}</div>
+        <div class="weather__feelslike">Feels like: {{ Math.round(weatherData.list[0].main.feels_like) }}°C ({{ convertTemp(Math.round(weatherData.list[0].main.feels_like)) }}°F)</div>
         <div class="weather__templow">Min: {{ Math.round(weatherData.list[0].main.temp_min) }}°C ({{ convertTemp(Math.round(weatherData.list[0].main.temp_min)) }}°F)</div>
         <div class="weather__temphigh">Max: {{ Math.round(weatherData.list[0].main.temp_max) }}°C ({{ convertTemp(Math.round(weatherData.list[0].main.temp_max)) }}°F)</div>
         <div class="weather__humidity">Humidity {{ weatherData.list[0].main.humidity }}%</div>
@@ -33,6 +34,7 @@
       <div class="weather__date">{{ getDate(weatherData.list[0].dt) }}</div>
       <div class="weather__time">{{ getTime(weatherData.city.timezone) }}</div>
       <div class="weather__extra">
+        <div class="weather__feelslike">Feels like: {{ Math.round(weatherData.list[0].main.feels_like) }}°C ({{ convertTemp(Math.round(weatherData.list[0].main.feels_like)) }}°F)</div>
         <div class="weather__templow">Min: {{ Math.round(weatherData.list[0].main.temp_min) }}°C ({{ convertTemp(weatherData.list[0].main.temp_min) }}°F)</div>
         <div class="weather__temphigh">Max: {{ Math.round(weatherData.list[0].main.temp_max) }}°C ({{ convertTemp(weatherData.list[0].main.temp_max) }}°F)</div>
         <div class="weather__humidity">Humidity {{ weatherData.list[0].main.humidity }}%</div>
@@ -136,10 +138,18 @@ export default {
       return `${days[date.getDay()]}`;
     },
     //get the time of the place searched for in 12 hour time
-    getTime: function(){
+    getTime: function(timezone){
+      let offset = timezone;
+      console.log(offset)
       let date = new Date();//date is returned in unixtime so multiply it by 1000
-      let hours = date.getHours();
-      let minutes = date.getMinutes();
+      let ms = date.getUTCSeconds()
+      console.log(ms)
+      date = ms + offset;
+
+      let nd = new Date(date);
+      
+      let hours = nd.getHours();
+      let minutes = nd.getMinutes();
       let meridiem = hours >= 12 ? 'PM' : 'AM';
       
       hours = hours % 12;
@@ -250,6 +260,9 @@ export default {
   font-weight:700;
   padding-bottom: 30px;
 }
+.weather__box .weather__feelslike {
+  padding-bottom: 8px;
+}
 .weather__box .weather__temphigh {
   padding-bottom: 8px;
 }
@@ -359,8 +372,12 @@ export default {
     margin-bottom: 30px;
     font-size: 16pt;
   }
-  .weather__box-responsive .weather__templow {
+  .weather__box-responsive .weather__feelslike {
     padding-bottom: 15px;
+  }
+  .weather__box-responsive .weather__templow {
+    padding: 15px;
+    border-top: 1px solid white;
   }
   .weather__box-responsive .weather__temphigh {
     padding: 15px;

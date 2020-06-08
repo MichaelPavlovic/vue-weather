@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>Enter a location to check the weather</h1>
     <Weather />
   </div>
 </template>
@@ -35,6 +36,8 @@ html, body {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   height: 100%;
+  color: white;
+  text-shadow: 3px 4px rgba(0, 0, 0, 0.25);
 }
 #app {
   text-align: center;

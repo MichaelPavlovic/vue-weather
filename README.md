@@ -4,8 +4,8 @@ Simple weather app that allows you search for any location and see some weather 
 
 ## Built With
 
-    * [openweathermap API](https://openweathermap.org/)
-    * [Vue.js](https://vuejs.org/)
+   * [openweathermap API](https://openweathermap.org/)
+   * [Vue.js](https://vuejs.org/)
 
 ### Task List
 
@@ -25,3 +25,7 @@ Basic weather info
 5 day forecast
 
 ![image](https://user-images.githubusercontent.com/55266594/83950784-3e2d2f80-a7fb-11ea-8cfe-36a7609a8367.png)
+
+Day/night background
+
+![image](https://user-images.githubusercontent.com/55266594/83957390-32129380-a836-11ea-93ae-c53868b1ff8f.png)
