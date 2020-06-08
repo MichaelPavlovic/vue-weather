@@ -28,4 +28,8 @@ Basic weather info
 
 Day/night background
 
+<<<<<<< HEAD
 ![image](https://user-images.githubusercontent.com/55266594/83957390-32129380-a836-11ea-93ae-c53868b1ff8f.png)
+=======
+![image](https://user-images.githubusercontent.com/55266594/83957390-32129380-a836-11ea-93ae-c53868b1ff8f.png)
+>>>>>>> 61c3d0a3a770ac7b3ae29667331e00d3b65501d7
