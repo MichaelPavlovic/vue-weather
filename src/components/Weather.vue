@@ -8,7 +8,7 @@
       <div class="flex-item">
         <div class="weather__location">{{ weatherData.city.name }}, {{ weatherData.city.country }}</div>
         <div class="weather__date">{{ getDate(weatherData.list[0].dt) }}</div>
-        <div class="weather__time">{{ getTime(weatherData.city.timezone) }}</div>
+        <div class="weather__time">{{ getTime() }}</div>
         <div class="weather__windspeed">Wind Speed: {{ weatherData.list[0].wind.speed }} km/h</div>
         <div class="weather__winddirection">Wind Direction: {{ degreeToCardinal(weatherData.list[0].wind.deg) }}</div>
       </div>
@@ -32,7 +32,7 @@
         <div class="weather__tempF">{{ convertTemp(Math.round(weatherData.list[0].main.temp)) }}°F</div> 
       </div>
       <div class="weather__date">{{ getDate(weatherData.list[0].dt) }}</div>
-      <div class="weather__time">{{ getTime(weatherData.city.timezone) }}</div>
+      <div class="weather__time">{{ getTime() }}</div>
       <div class="weather__extra">
         <div class="weather__feelslike">Feels like: {{ Math.round(weatherData.list[0].main.feels_like) }}°C ({{ convertTemp(Math.round(weatherData.list[0].main.feels_like)) }}°F)</div>
         <div class="weather__templow">Min: {{ Math.round(weatherData.list[0].main.temp_min) }}°C ({{ convertTemp(weatherData.list[0].main.temp_min) }}°F)</div>
@@ -138,18 +138,10 @@ export default {
       return `${days[date.getDay()]}`;
     },
     //get the time of the place searched for in 12 hour time
-    getTime: function(timezone){
-      let offset = timezone;
-      console.log(offset)
-      let date = new Date();//date is returned in unixtime so multiply it by 1000
-      let ms = date.getUTCSeconds()
-      console.log(ms)
-      date = ms + offset;
-
-      let nd = new Date(date);
-      
-      let hours = nd.getHours();
-      let minutes = nd.getMinutes();
+    getTime: function(){
+      let date = new Date();
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
       let meridiem = hours >= 12 ? 'PM' : 'AM';
       
       hours = hours % 12;
